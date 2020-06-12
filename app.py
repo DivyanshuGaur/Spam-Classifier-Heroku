@@ -25,9 +25,8 @@ def analyse():
     msg=(request.args.get('data'))
 
     prediction=classify(msg)
-    img=base64s(prediction)
 
-    resp={'image':img,'pred':prediction}
+    resp={'pred':prediction}
 
     return jsonify(resp)
 
@@ -49,17 +48,7 @@ def classify(msg):
 #"#003366"
 
 
-def base64s(x):
-    if(x == "HAM"):
-        print(x)
-        with open("images/ham.jpg", "rb") as image_file:
-            encode_string = base64.b64encode(image_file.read())
-        return encode_string.decode('utf-8')
 
-    else:
-        with open("images/spam_img .jpg", "rb") as image_file:
-            encode_string= base64.b64encode(image_file.read())
-        return encode_string.decode('utf-8')
 
 
 
