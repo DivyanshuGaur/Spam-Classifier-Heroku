@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classifier</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+
+
+        .myDiv {
+                border: 2px outset black;
+                background-color: #A52A2A;
+                text-align: center;
+                text-color:#ffffff;
+                }
+
+
+        .ta{
+
+               border: 2px outset white;
+
+            }
+
+        .row {
+                display: flex;
+            }
+
+        .column {
+                flex: 50%;
+            }
+
+
+            #submit {
+ background-color: #bbb;
+ padding: .5em;
+ -moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+ border-radius: 6px;
+ color: #fff;
+ font-family: 'Oswald';
+ font-size: 20px;
+ text-decoration: none;
+ border: none;
+}
+#submit:hover {
+ border: none;
+ background: #A52A2A;
+ box-shadow: 0px 0px 1px #777;
+}
+
+    </style>
+</head>
+<body bgcolor="#003366">
+     <div align="center" class="myDiv">
+         <h1><b>SPAM VS HAM CLASSIFIER</b> </h1>
+     </div>
+        <BR><BR><BR>
+        <div class="row">
+                <div class="column" >
+                    <textarea  placeholder="Enter message..";   class ="ta"; rows="20" cols="100"  style="border:solid 4px black;"></textarea>
+                    <br>
+                    <br>
+                    <div align="right">
+                    <button id="submit"; align="right";>Analyse</button>
+                    </div>
+
+                </div>
+
+
+               <div class="column"  align="center">
+
+                   <img src="" id="dispimg">  </img>
+
+               </div>
+
+
+
+                </div>
+
+
+    <script>
+
+           $(document).ready(function(){
+            $("button").click(function(){
+                    var msg=$("textarea").val();
+                    if(msg === "" || msg ===" ")
+                    alert("EMPTY OR NULL STRING");
+
+                    $.ajax({
+                    type : 'GET',
+                    url: "http://127.0.0.1:5000/analyse",
+                    data : {'data' : msg},
+
+
+                    success: function(result){
+                     console.log(result.pred);
+                     var i='data:image/jpg;base64,'+(result.image);
+
+                     $("#dispimg").attr("src",i);
+
+
+                    }});
+            });
+            });
+
+
+    </script>
+
+
+
+</body>
+</html>
