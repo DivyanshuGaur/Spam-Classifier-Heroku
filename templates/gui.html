@@ -95,7 +95,9 @@
 
                     success: function(result){
                      console.log(result.pred);
-                     $("#dispimg").append(result.pred);
+                     var i='data:image/jpg;base64,'+(result.image);
+
+                     $("#dispimg").attr("src",i);
 
 
                     }});
