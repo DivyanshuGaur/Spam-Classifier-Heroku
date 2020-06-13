@@ -19,7 +19,7 @@ def gui():
     return render_template('gui.html')
 
 
-@app.route('/analyse',methods=['GET','POST'])
+@app.route('/analyse/',methods=['GET','POST'])
 def analyse():
     print(request.method)
     msg=(request.args.get('data'))
