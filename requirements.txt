@@ -11,4 +11,4 @@ matplotlib>=1.4.3
 pandas>=0.19
 nltk>=3.4.5
 JOBLIB==0.15.0
-FLASK-CORS== 3.0.8
+FLASK-CORS== 3.0.9
