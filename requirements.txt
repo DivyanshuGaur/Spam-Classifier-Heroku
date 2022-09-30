@@ -10,5 +10,5 @@ scikit-learn>=0.18
 matplotlib>=1.4.3
 pandas>=0.19
 nltk>=3.4.5
-JOBLIB==0.15.0
+JOBLIB==1.2.0
 FLASK-CORS== 3.0.8
